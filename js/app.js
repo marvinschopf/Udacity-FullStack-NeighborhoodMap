@@ -51,6 +51,8 @@ var Location = function(data) {
 		title:self.complete_title
 	});
 
+	$('.listlist').append("<li>"+self.formatted_title+"</li>");
+
 	this.mark.addListener('click',function() {
 		self.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
 		self.iw.setContent(self.content);
