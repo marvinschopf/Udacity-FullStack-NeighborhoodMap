@@ -29,7 +29,7 @@ var Location = function(data) {
 	});
 
 	this.sm = ko.computed(function() {
-		if(this.isVisible()) {
+		if(this.isVisible() === true) {
 			this.mark.setMap(map);
 		} else {
 			this.marker.setMap(null);
