@@ -16,7 +16,7 @@ var Location = function(data) {
 	this.city = "";
 	this.phone = "";
 
-	this.isVisible = ko.observable(true);
+	this.isVisible = ko.observable(true,this);
 
 	this.content = '<div class="info-window"><span class="title"><b>'+data.title+'</b></span></div>';
 
