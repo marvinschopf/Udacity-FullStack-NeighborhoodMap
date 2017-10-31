@@ -39,6 +39,8 @@ var Location = function(data) {
 		self.main_category = self.foursquare_response.categories[0].name;
 		self.formatted_title = "<b>"+self.foursquare_response.name+" ("+self.main_category+")</b>";
 		self.complete_title = self.foursquare_response.name+" ("+self.main_category+")";
+
+		$('.listlist').append("<li>"+this.formatted_title+"</li>");
 	});
 
 	this.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
@@ -51,7 +53,6 @@ var Location = function(data) {
 		title:self.complete_title
 	});
 
-	$('.listlist').append("<li>"+self.formatted_title+"</li>");
 
 	this.mark.addListener('click',function() {
 		self.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
