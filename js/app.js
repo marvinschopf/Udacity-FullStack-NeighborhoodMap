@@ -31,3 +31,6 @@ function AppViewModel() {
 	});
 }
 
+function load() {
+	ko.applyBindings(new AppViewModel());
+}
