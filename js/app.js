@@ -34,6 +34,7 @@ var Location = function(data) {
 			limit:"1"
 		}
 	}).done(function(resp) {
+		console.log(resp);
 		self.foursquare_response = resp.response.venues[0];
 		self.address = "<pre>" + self.foursquare_response.formattedAddress[0] + "<br>" + self.foursquare_response.formattedAddress[1] + "<br>" + self.foursquare_response.formattedAddress[2] + "</pre>";
 	});
