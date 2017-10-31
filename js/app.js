@@ -43,11 +43,7 @@ var Location = function(data) {
 		self.title = self.foursquare_response.title;
 		self.categories = self.foursquare_response.categories;
 		console.log(self.categories);
-		self.categories.forEach(function(index,element) {
-			if(element.primary === true) {
-				self.main_category = element.name;
-			}
-		});
+		self.main_category = self.categories[0];
 		self.formatted_title = "<b>"+self.title+" ("+self.main_category+")</b>";
 		self.complete_title = self.title+" ("+self.main_category+")";
 	});
