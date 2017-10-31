@@ -49,7 +49,7 @@ function AppViewModel() {
 
 	map = new google.maps.Map(document.getElementById('map'), {
 		zoom:11,
-		center:{lat:50.113929,long:8.680652}
+		center:{lat:50.113929,lng:8.680652}
 	});
 
 	mapLocations.forEach(function(item) {
