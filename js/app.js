@@ -19,10 +19,26 @@ var Location = function(data) {
 	this.street = "";
 	this.city = "";
 	this.phone = "";
+	this.address = "";
 
 	this.visible = ko.observable(true);
 
-	this.content = '<div class="info-window"><span class="title"><b>'+data.title+'</b></span></div>';
+	$.ajax({
+		method:"get",
+		url:"https://api.foursquare.com/v2/venues/search",
+		data:{
+			ll:self.latitude+","+self.longitude,
+			v:"20170801",
+			client_id:"PLTZT1HHN0Q20XAE5TRDFUPJLV3YKW4F5ZA00SJYPVTOHO5B",
+			client_secret:"RMJKT5CTWVEIFUEKRSAAF01TTABE53IA2OU4IGA4ZRPL1TBV",
+			limit:"1"
+		}
+	}).done(function(resp) {
+		self.foursquare_response = resp.response.venues[0];
+		self.address = "<pre>" + self.foursquare_response.formattedAddress[0] + "<br>" + self.foursquare_response.formattedAddress[1] + "<br>" + self.foursquare_response.formattedAddress[2] + "</pre>";
+	});
+
+	this.content = '<div class="info-window"><span class="title"><b>'+data.title+'</b></span>'+self.address+'</div>';
 
 	this.iw = new google.maps.InfoWindow({content:self.content});
 
@@ -33,7 +49,7 @@ var Location = function(data) {
 	});
 
 	this.mark.addListener('click',function() {
-		self.content = 'self.content';
+		self.content = '<div class="info-window"><span class="title"><b>'+data.title+'</b></span>'+self.address+'</div>';
 		self.iw.setContent(self.content);
 		self.iw.open(map,this);
 		self.mark.setAnimation(google.maps.Animation.BOUNCE);
