@@ -2,12 +2,7 @@
 
 var map;
 
-var mapLocations = [
-	{
-		lat: 50.114354,
-		long: 8.681447
-	}
-];
+
 
 var Location = function(data) {
 	console.log("Location initializes with name "+data.title);
