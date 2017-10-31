@@ -12,8 +12,8 @@ var mapLocations = [
 		// Senckenberg Museum
 	},
 	{
-		lat: 50.110372,
-		long: 8.648573
+		lat: 50.111389,
+		long: 8.648333
 		// Messe
 	},
 	{
@@ -22,13 +22,13 @@ var mapLocations = [
 		// Skyline Plaza
 	},
 	{
-		lat: 50.116357,
-		long: 8.699471
+		lat: 50.115583,
+		long: 8.703139
 		// Zoo Frankfurt
 	},
 	{
-		lat: 50.088978,
-		long: 8.711305
+		lat: 50.089,
+		long: 8.711389
 		// Goetheturm
 	}
 ];
