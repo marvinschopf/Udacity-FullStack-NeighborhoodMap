@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div class="map" id="map">An error occured!</div>
+<map>An error occured!</map>
 
 <script src="js/knockout-3.4.2.js"></script>
 <script src="js/jquery-3.2.1.min.js"></script>
@@ -67,10 +67,12 @@ function AppViewModel() {
 
 	this.locations = ko.observableArray([]);
 
-	map = new google.maps.Map(document.getElementById('map'), {
-		zoom:11,
+	var map = new google.maps.Map(document.getElementByTagName('map'), {
+		zoom:12,
 		center:{lat:50.113929,lng:8.680652}
 	});
+
+	console.log("Intialized map!");
 
 	mapLocations.forEach(function(item) {
 		self.locations.push(new Location(item));
