@@ -8,10 +8,32 @@
 	<meta name="keywords" content="frankfurt,frankfurt am main,frankfurt karte,frankfurt sehenswürdigkeiten">
 	<meta name="creator" content="Marvin S. / https://marvnet.de">
 	<meta name="author" content="Marvin S. / https://marvnet.de">
+
+<style>
+html, body, mapframe, map {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+mapframe {
+	width:50%;
+	float:right;
+}
+map {
+    position: relative;
+}
+</style>
 </head>
 <body>
+<mapframe>
 
-<map>An error occured!</map>
+</mapframe>
+<map id='map' class='map'>An error occured!</map>
+
+
+
 
 <script src="js/knockout-3.4.2.js"></script>
 <script src="js/jquery-3.2.1.min.js"></script>
@@ -71,7 +93,7 @@ function AppViewModel() {
 
 	this.locations = ko.observableArray([]);
 
-	map = new google.maps.Map(document.getElementsByTagName('map')[0], {
+	map = new google.maps.Map(document.getElementsByTagName('mapframe')[0], {
 		zoom:12,
 		center:{lat:50.113929,lng:8.680652}
 	});
@@ -84,6 +106,8 @@ function AppViewModel() {
 	});
 
 	console.log("Initialized appviewmodel!");
+
+	//this.mapElem.style.height = window.innerHeight - 50;
 
 }
 
