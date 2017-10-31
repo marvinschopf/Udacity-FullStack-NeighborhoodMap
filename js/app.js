@@ -54,6 +54,7 @@ var Location = function(data) {
 		title:self.complete_title
 	});
 
+	/*
 	$('#'+self.id).addListener('click', function() {
 		self.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
 		self.iw.setContent(self.content);
@@ -64,6 +65,7 @@ var Location = function(data) {
 			self.mark.setAnimation(null);
 		},2100);
 	});
+	*/
 
 
 	this.mark.addListener('click',function() {
