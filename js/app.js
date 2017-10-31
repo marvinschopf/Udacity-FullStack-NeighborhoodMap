@@ -36,7 +36,7 @@ var Location = function(data) {
 	}).done(function(resp) {
 		console.log(resp);
 		self.foursquare_response = resp.response.venues[0];
-		self.address = "<pre>" + self.foursquare_response.formattedAddress[0] + "<br>" + self.foursquare_response.formattedAddress[1] + "<br>" + self.foursquare_response.formattedAddress[2] + "</pre>";
+		self.address = "<pre>" + self.foursquare_response.location.formattedAddress[0] + "<br>" + self.foursquare_response.location.formattedAddress[1] + "<br>" + self.foursquare_response.location.formattedAddress[2] + "</pre>";
 	});
 
 	this.content = '<div class="info-window"><span class="title"><b>'+data.title+'</b></span>'+self.address+'</div>';
