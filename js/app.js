@@ -34,6 +34,7 @@ var Location = function(data) {
 
 	this.mark.addListener('click',function() {
 		self.content = 'self.content';
+		self.iw.setContent(self.content);
 		self.iw.open(map,this);
 		self.mark.setAnimation(google.maps.Animation.BOUNCE);
 		setTimeout(function() {
