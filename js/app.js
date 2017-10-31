@@ -40,7 +40,7 @@ var Location = function(data) {
 		self.formatted_title = "<b>"+self.foursquare_response.name+" ("+self.main_category+")</b>";
 		self.complete_title = self.foursquare_response.name+" ("+self.main_category+")";
 
-		$('.listlist').append("<li>"+this.formatted_title+"</li>");
+		$('.listlist').append("<li>"+self.formatted_title+"</li>");
 	});
 
 	this.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
