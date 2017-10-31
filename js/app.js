@@ -39,8 +39,9 @@ var Location = function(data) {
 		self.main_category = self.foursquare_response.categories[0].name;
 		self.formatted_title = "<b>"+self.foursquare_response.name+" ("+self.main_category+")</b>";
 		self.complete_title = self.foursquare_response.name+" ("+self.main_category+")";
+		self.id = self.foursquare_response.id;
 
-		$('.listlist').append("<li>"+self.formatted_title+"</li>");
+		$('.listlist').append("<li id='"+self.id+"'>"+self.formatted_title+"</li>");
 	});
 
 	this.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
@@ -51,6 +52,16 @@ var Location = function(data) {
 		position: new google.maps.LatLng(data.lat,data.long),
 		map:map,
 		title:self.complete_title
+	});
+
+	$('#'+self.id).addListener('click', function() {
+		self.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
+		self.iw.setContent(self.content);
+		self.iw.open(map,this);
+		self.mark.setAnimation(google.maps.Animation.BOUNCE);
+		setTimeout(function() {
+			self.mark.setAnimation(null);
+		},2100);
 	});
 
 
