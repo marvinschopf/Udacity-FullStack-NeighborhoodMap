@@ -40,7 +40,7 @@ var Location = function(data) {
 		console.log(resp);
 		self.foursquare_response = resp.response.venues[0];
 		self.address = "<pre>" + self.foursquare_response.location.formattedAddress[0] + "<br>" + self.foursquare_response.location.formattedAddress[1] + "<br>" + self.foursquare_response.location.formattedAddress[2] + "</pre>";
-		self.title = self.foursquare_response.title;
+		self.title = self.foursquare_response.name;
 		self.main_category = self.foursquare_response.categories[0].name;
 		self.formatted_title = "<b>"+self.title+" ("+self.main_category+")</b>";
 		self.complete_title = self.title+" ("+self.main_category+")";
