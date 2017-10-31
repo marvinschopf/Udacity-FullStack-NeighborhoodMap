@@ -17,6 +17,27 @@ var Location = function(data) {
 	this.phone = "";
 
 	this.isVisible = ko.observable(true);
+
+	this.content = '<div class="info-window"><span class="title"><b>'+data.title+'</b></span></div>';
+
+	this.iw = new google.maps.InfoWindow({content:self.content});
+
+	this.mark = new google.maps.Marker({
+		position: new google.maps.LatLng(data.lat,data.long),
+		map:map,
+		title:data.title
+	});
+
+	this.sm = ko.computed(function() {
+		if(this.visible()) {
+			this.mark.setMap(map);
+		} else {
+			this.marker.setMap(null);
+		}
+		return true;
+	});
+
+	self.iw.setContent(self.contentString);
 }
 
 function AppViewModel() {
@@ -25,6 +46,11 @@ function AppViewModel() {
 	this.query = ko.observable("");
 
 	this.locations = ko.observableArray([]);
+
+	map = new google.maps.Map(document.getElementById('map'), {
+		zoom:11,
+		center:{lat:50.113929,long:8.680652}
+	});
 
 	mapLocations.forEach(function(item) {
 		self.locations.push(new Location(item));
