@@ -23,15 +23,16 @@ map {
 	display:flex;
 }
 
+
 .list {
-	background-color:cyan;
+	order: 1;
+	flex-grow: 1;
+	background-color: #055;
 }
 
 li {
-	background-color:blue;
-	border:solid black;
-	height:10px;
-	width:90%;
-	margin-right:4px;
-	margin-left:4px;
+    margin: 10px;
+    padding: 10px;
+    list-style: none;
+    background-color: #088;
 }
