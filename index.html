@@ -67,7 +67,7 @@ function AppViewModel() {
 
 	this.locations = ko.observableArray([]);
 
-	var map = new google.maps.Map(document.getElementByTagName('map'), {
+	var map = new google.maps.Map(document.getElementsByTagName('map')[0], {
 		zoom:12,
 		center:{lat:50.113929,lng:8.680652}
 	});
