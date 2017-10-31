@@ -32,11 +32,19 @@ var Location = function(data) {
 		title:data.title
 	});
 
+	this.mark.addListener('click',function() {
+		self.iw.open(map,this);
+		self.mark.setAnimation(google.maps.Animation.BOUNCE);
+		setTimeout(function() {
+			self.mark.setAnimation(null);
+		},2100);
+	});
+
 	this.sm = ko.computed(function() {
 		if(this.visible() === true) {
 			this.mark.setMap(map);
 		} else {
-			this.marker.setMap(null);
+			this.mark.setMap(null);
 		}
 		return true;
 	}, this);
