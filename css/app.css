@@ -1,4 +1,14 @@
+html, body, mapframe, map {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 mapframe {
-	height:100%;
-	width:100%;
+	width:50% !important;
+	float:right !important;
+}
+map {
+    position: relative !important;
 }
