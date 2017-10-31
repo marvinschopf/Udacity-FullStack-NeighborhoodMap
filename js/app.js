@@ -41,11 +41,11 @@ var Location = function(data) {
 		self.foursquare_response = resp.response.venues[0];
 		self.address = "<pre>" + self.foursquare_response.location.formattedAddress[0] + "<br>" + self.foursquare_response.location.formattedAddress[1] + "<br>" + self.foursquare_response.location.formattedAddress[2] + "</pre>";
 		self.title = self.foursquare_response.title;
-		self.categories = self.foursquare_response.location.categories;
+		self.categories = self.foursquare_response.categories;
 		console.log(self.categories);
-		$.each(self.categories,function(i,val) {
-			if(val.primary === true) {
-				this.main_category = val.name;
+		self.categories.forEach(function(index,element) {
+			if(element.primary === true) {
+				self.main_category = element.name;
 			}
 		});
 		self.formatted_title = "<b>"+self.title+" ("+self.main_category+")</b>";
