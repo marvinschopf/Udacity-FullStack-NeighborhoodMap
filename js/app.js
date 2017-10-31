@@ -1,5 +1,5 @@
 
-locations = [
+mapLocations = [
 	{
 		title: 'MyZeil (Shopping Center)',
 		lat: 50.114354,
@@ -17,5 +17,17 @@ var Location = function(data) {
 	this.phone = "";
 
 	this.isVisible = ko.observable(true);
+}
+
+function AppViewModel() {
+	var self = this;
+
+	this.query = ko.observable("");
+
+	this.locations = ko.observableArray([]);
+
+	mapLocations.forEach(function(item) {
+		self.locations.push(new Location(item));
+	});
 }
 
