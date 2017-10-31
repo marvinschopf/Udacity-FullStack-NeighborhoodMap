@@ -60,3 +60,7 @@ function AppViewModel() {
 function loadEverything() {
 	ko.applyBindings(new AppViewModel());
 }
+
+function error() {
+	$('body').html("<div style='height:100%;width:100%;background-color:red;color:white;font-size:5em;'><h1>Unable to load map!</h1></div>");
+}
