@@ -6,9 +6,19 @@ html, body, mapframe, map {
 }
 
 mapframe {
-	width:50% !important;
-	float:right !important;
+	width:100% !important;
 }
 map {
     position: relative !important;
+}
+
+.row {
+	width:100% !important;
+	height:100% !important;
+	display:flex;
+}
+
+.col-md-6 {
+	width:50% !important;
+	display:flex;
 }
