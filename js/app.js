@@ -16,7 +16,7 @@ var Location = function(data) {
 	this.city = "";
 	this.phone = "";
 
-	this.isVisible = ko.observable(true,this);
+	this.visible = ko.observable(true);
 
 	this.content = '<div class="info-window"><span class="title"><b>'+data.title+'</b></span></div>';
 
@@ -29,13 +29,13 @@ var Location = function(data) {
 	});
 
 	this.sm = ko.computed(function() {
-		if(this.isVisible() === true) {
+		if(this.visible() === true) {
 			this.mark.setMap(map);
 		} else {
 			this.marker.setMap(null);
 		}
 		return true;
-	});
+	}, this);
 
 	self.iw.setContent(self.contentString);
 }
