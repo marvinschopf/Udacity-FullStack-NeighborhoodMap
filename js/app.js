@@ -59,6 +59,7 @@ var Location = function(data) {
 		self.iw.setContent(self.content);
 		self.iw.open(map,this);
 		self.mark.setAnimation(google.maps.Animation.BOUNCE);
+		// placeholder
 		setTimeout(function() {
 			self.mark.setAnimation(null);
 		},2100);
