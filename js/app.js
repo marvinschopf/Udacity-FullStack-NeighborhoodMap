@@ -57,6 +57,6 @@ function AppViewModel() {
 	});
 }
 
-function load() {
+function loadEverything() {
 	ko.applyBindings(new AppViewModel());
 }
