@@ -41,9 +41,7 @@ var Location = function(data) {
 		self.foursquare_response = resp.response.venues[0];
 		self.address = "<pre>" + self.foursquare_response.location.formattedAddress[0] + "<br>" + self.foursquare_response.location.formattedAddress[1] + "<br>" + self.foursquare_response.location.formattedAddress[2] + "</pre>";
 		self.title = self.foursquare_response.title;
-		self.categories = self.foursquare_response.categories;
-		console.log(self.categories);
-		self.main_category = self.categories[0];
+		self.main_category = self.foursquare_response.categories[0].name;
 		self.formatted_title = "<b>"+self.title+" ("+self.main_category+")</b>";
 		self.complete_title = self.title+" ("+self.main_category+")";
 	});
