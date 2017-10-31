@@ -4,7 +4,6 @@ var map;
 
 var mapLocations = [
 	{
-		title: 'MyZeil (Shopping Center)',
 		lat: 50.114354,
 		long: 8.681447
 	}
@@ -20,6 +19,10 @@ var Location = function(data) {
 	this.city = "";
 	this.phone = "";
 	this.address = "";
+	this.title = "";
+	this.main_category = "";
+	this.formatted_title = "";
+	this.categories = "";
 
 	this.visible = ko.observable(true);
 
@@ -37,20 +40,29 @@ var Location = function(data) {
 		console.log(resp);
 		self.foursquare_response = resp.response.venues[0];
 		self.address = "<pre>" + self.foursquare_response.location.formattedAddress[0] + "<br>" + self.foursquare_response.location.formattedAddress[1] + "<br>" + self.foursquare_response.location.formattedAddress[2] + "</pre>";
+		self.title = self.foursquare_response.title;
+		self.categories = self.foursquare_response.categories;
+		$.each(self.categories,function(i,val) {
+			if(val.primary === true) {
+				this.main_category = val.name;
+			}
+		});
+		self.formatted_title = "<b>"+self.title+" ("+self.main_category+")</b>";
+		self.complete_title = self.title+" ("+self.main_category+")";
 	});
 
-	this.content = '<div class="info-window"><span class="title"><b>'+data.title+'</b></span>'+self.address+'</div>';
+	this.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
 
 	this.iw = new google.maps.InfoWindow({content:self.content});
 
 	this.mark = new google.maps.Marker({
 		position: new google.maps.LatLng(data.lat,data.long),
 		map:map,
-		title:data.title
+		title:self.complete_title
 	});
 
 	this.mark.addListener('click',function() {
-		self.content = '<div class="info-window"><span class="title"><b>'+data.title+'</b></span>'+self.address+'</div>';
+		self.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
 		self.iw.setContent(self.content);
 		self.iw.open(map,this);
 		self.mark.setAnimation(google.maps.Animation.BOUNCE);
