@@ -42,7 +42,7 @@ var Location = function(data) {
 		self.address = "<pre>" + self.foursquare_response.location.formattedAddress[0] + "<br>" + self.foursquare_response.location.formattedAddress[1] + "<br>" + self.foursquare_response.location.formattedAddress[2] + "</pre>";
 		self.title = self.foursquare_response.title;
 		self.categories = self.foursquare_response.categories;
-		$.each(self.categories,function(i,val) {
+		$.each(self.foursquare_response.categories,function(i,val) {
 			if(val.primary === true) {
 				this.main_category = val.name;
 			}
