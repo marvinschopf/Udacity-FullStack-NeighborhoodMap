@@ -9,7 +9,7 @@
 	<meta name="creator" content="Marvin S. / https://marvnet.de">
 	<meta name="author" content="Marvin S. / https://marvnet.de">
 </head>
-<body>
+<body onload="javascript:loadEverything();">
 
 <div class="map" id="map">An error occured!</div>
 
@@ -87,7 +87,7 @@ function loadEverything() {
 }
 
 function error() {
-	$('body').html("<div style='height:100%;width:100%;background-color:red;color:white;font-size:5em;'><h1>Unable to load map!</h1></div>");
+	alert("An error occured!");
 	console.log("An error occured!!");
 }
 </script>

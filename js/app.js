@@ -1,4 +1,3 @@
-
 mapLocations = [
 	{
 		title: 'MyZeil (Shopping Center)',
@@ -8,6 +7,7 @@ mapLocations = [
 ];
 
 var Location = function(data) {
+	console.log("Location initializes with name "+data.title);
 	var self = this;
 	this.latitude = data.lat;
 	this.longitude = data.long;
@@ -54,13 +54,19 @@ function AppViewModel() {
 
 	mapLocations.forEach(function(item) {
 		self.locations.push(new Location(item));
+		console.log("Pushed new item to locations");
 	});
+
+	console.log("Initialized appviewmodel!");
+
 }
 
 function loadEverything() {
 	ko.applyBindings(new AppViewModel());
+	console.log("Loaded everything!");
 }
 
 function error() {
-	$('body').html("<div style='height:100%;width:100%;background-color:red;color:white;font-size:5em;'><h1>Unable to load map!</h1></div>");
+	alert("An error occured!");
+	console.log("An error occured!!");
 }
