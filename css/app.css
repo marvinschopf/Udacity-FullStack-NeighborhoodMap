@@ -22,3 +22,16 @@ map {
 	width:50% !important;
 	display:flex;
 }
+
+.list {
+	background-color:cyan;
+}
+
+li {
+	background-color:blue;
+	border:solid black;
+	height:10px;
+	width:90%;
+	margin-right:4px;
+	margin-left:4px;
+}
