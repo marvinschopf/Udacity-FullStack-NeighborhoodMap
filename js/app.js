@@ -9,7 +9,7 @@ var Location = function(data) {
 
 	this.title = "";
 	if(typeof data.title !== 'undefined') {
-			self.title = data.title;
+			this.title = data.title;
 			console.log("Using predefined title: "+self.title);
 	}
 
