@@ -15,8 +15,8 @@
 <body>
 <div class="row">
 	<div class="col-md-6 list">
-		<ul class="listlist">
-			<li>Test</li>
+		<ul class="listlist" data-bind="foreach: locations">
+			<li data-bind="text: title, click: showWindowOnClick"></li>
 		</ul>
 	</div>
 	<div class="col-md-6">

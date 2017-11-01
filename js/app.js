@@ -80,7 +80,7 @@ var Location = function(data) {
 		},2100);
 	});
 
-	$('#'+self.id).click(function() {
+	function showWindowOnClick(){
 		self.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
 		self.iw.setContent(self.content);
 		self.iw.open(map,this);
@@ -88,7 +88,7 @@ var Location = function(data) {
 		setTimeout(function() {
 			self.mark.setAnimation(null);
 		},2100);
-	});
+	}
 
 	this.sm = ko.computed(function() {
 		if(this.visible() === true) {
