@@ -46,8 +46,8 @@ var Location = function(data) {
 		$('.listlist').append("<li id='"+self.id+"'>"+self.formatted_title+"</li>");
 	});
 
-	if(self.pre_data.title) {
-			self.title = self.pre_data.title;
+	if(data.title) {
+			self.title = data.title;
 			console.log("Using predefined title: "+self.title);
 	} else {
 			self.title = self.foursquare_response.name;
