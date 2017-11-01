@@ -5,6 +5,16 @@ var map;
 
 
 var Location = function(data) {
+	
+	this.title = "";
+	if(typeof data.title !== 'undefined') {
+			self.title = data.title;
+			console.log("Using predefined title: "+self.title);
+	} else {
+			self.title = self.foursquare_response.name;
+			console.log("Using foursquare title: "+self.title);
+	}
+
 	console.log("Location initializes with name "+data.title);
 	var self = this;
 	this.pre_data = data;
@@ -15,7 +25,6 @@ var Location = function(data) {
 	this.city = "";
 	this.phone = "";
 	this.address = "";
-	this.title = "";
 	this.main_category = "";
 	this.formatted_title = "";
 	this.categories = "";
@@ -46,14 +55,7 @@ var Location = function(data) {
 		$('.listlist').append("<li id='"+self.id+"'>"+self.formatted_title+"</li>");
 	});
 
-	if(data.title) {
-			self.title = data.title;
-			console.log("Using predefined title: "+self.title);
-	} else {
-			self.title = self.foursquare_response.name;
-			console.log("Using foursquare title: "+self.title);
-	}
-
+	
 	this.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
 
 	this.iw = new google.maps.InfoWindow({content:self.content});
