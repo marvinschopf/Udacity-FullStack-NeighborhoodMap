@@ -32,6 +32,11 @@ var mapLocations = [
 		lat: 50.089,
 		long: 8.711389
 		// Goetheturm
+	},
+	{
+		lat: 50.068629,
+		long: 8.645172
+		// Commerzbank-Arena
 	}
 ];
 
