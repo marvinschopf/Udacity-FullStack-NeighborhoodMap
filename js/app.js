@@ -36,14 +36,8 @@ var Location = function(data) {
 		console.log(resp);
 		self.foursquare_response = resp.response.venues[0];
 		self.address = "<pre>" + self.foursquare_response.location.formattedAddress[0] + "<br>" + self.foursquare_response.location.formattedAddress[1] + "<br>" + self.foursquare_response.location.formattedAddress[2] + "</pre>";
-		self.title = self.foursquare_response.name;
-		if(self.pre_data.title) {
-			self.title = self.pre_data.title;
-			console.log("Using predefined title: "+self.title);
-		} else {
-			self.title = self.foursquare_response.name;
-			console.log("Using foursquare title: "+self.title);
-		}
+		
+
 		self.main_category = self.foursquare_response.categories[0].name;
 		self.formatted_title = "<b>"+self.foursquare_response.name+" ("+self.main_category+")</b>";
 		self.complete_title = self.foursquare_response.name+" ("+self.main_category+")";
@@ -51,6 +45,14 @@ var Location = function(data) {
 
 		$('.listlist').append("<li id='"+self.id+"'>"+self.formatted_title+"</li>");
 	});
+
+	if(self.pre_data.title) {
+			self.title = self.pre_data.title;
+			console.log("Using predefined title: "+self.title);
+	} else {
+			self.title = self.foursquare_response.name;
+			console.log("Using foursquare title: "+self.title);
+	}
 
 	this.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
 
