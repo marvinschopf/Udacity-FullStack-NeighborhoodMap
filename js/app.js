@@ -80,7 +80,7 @@ var Location = function(data) {
 		},2100);
 	});
 
-	document.getElementById(self.id).addEventListener("click", function() {
+	$('#'+self.id).click(function() {
 		self.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
 		self.iw.setContent(self.content);
 		self.iw.open(map,this);
