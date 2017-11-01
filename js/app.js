@@ -5,6 +5,7 @@ var map;
 
 
 var Location = function(data) {
+	var self = this;
 
 	this.title = "";
 	if(typeof data.title !== 'undefined') {
@@ -13,7 +14,7 @@ var Location = function(data) {
 	}
 
 	console.log("Location initializes with name "+data.title);
-	var self = this;
+	
 	this.pre_data = data;
 	this.latitude = data.lat;
 	this.longitude = data.long;
