@@ -14,7 +14,7 @@ var mapLocations = [
 	{
 		lat: 50.111389,
 		long: 8.648333
-		// Messe
+		// Messe !
 	},
 	{
 		lat: 50.109367,

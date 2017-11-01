@@ -36,10 +36,12 @@ var Location = function(data) {
 		console.log(resp);
 		self.foursquare_response = resp.response.venues[0];
 		self.address = "<pre>" + self.foursquare_response.location.formattedAddress[0] + "<br>" + self.foursquare_response.location.formattedAddress[1] + "<br>" + self.foursquare_response.location.formattedAddress[2] + "</pre>";
-		if(!self.pre_data.title) {
-			self.title = self.foursquare_response.name;
-		} else {
+		if(self.pre_data.title) {
+			console.log("Title predefined: "+self.pre_data.title);
 			self.title = self.pre_data.title;
+		} else {
+			console.log("No title predefined, using foursquare data: "self.foursquare_response.name);
+			self.title = self.foursquare_response.name;
 		}
 		self.main_category = self.foursquare_response.categories[0].name;
 		self.formatted_title = "<b>"+self.foursquare_response.name+" ("+self.main_category+")</b>";
