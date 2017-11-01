@@ -50,12 +50,13 @@ var Location = function(data) {
 		self.complete_title = self.foursquare_response.name+" ("+self.main_category+")";
 		self.id = self.foursquare_response.id;
 
-		if(self.title === "") {
+		if(self.title == "") {
 			self.title = self.foursquare_response.name;
 		}
 
 		$('.listlist').append("<li id='"+self.id+"'>"+self.formatted_title+"</li>");
 	});
+
 
 	
 	this.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
@@ -70,6 +71,16 @@ var Location = function(data) {
 
 
 	this.mark.addListener('click',function() {
+		self.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
+		self.iw.setContent(self.content);
+		self.iw.open(map,this);
+		self.mark.setAnimation(google.maps.Animation.BOUNCE);
+		setTimeout(function() {
+			self.mark.setAnimation(null);
+		},2100);
+	});
+
+	document.getElementById(self.id).addEventListener("click", function() {
 		self.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
 		self.iw.setContent(self.content);
 		self.iw.open(map,this);
