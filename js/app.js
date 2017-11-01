@@ -54,7 +54,6 @@ var Location = function(data) {
 			self.title = self.foursquare_response.name;
 		}
 
-		$('.listlist').append("<li id='"+self.id+"'>"+self.formatted_title+"</li>");
 	});
 
 
@@ -107,7 +106,7 @@ function AppViewModel() {
 
 	this.query = ko.observable("");
 
-	this.locations = ko.observableArray([]);
+	this.allLocations = ko.observableArray([]);
 
 	map = new google.maps.Map(document.getElementsByTagName('mapframe')[0], {
 		zoom:12,
@@ -117,7 +116,7 @@ function AppViewModel() {
 	console.log("Intialized map!");
 
 	mapLocations.forEach(function(item) {
-		self.locations.push(new Location(item));
+		self.allLocations.push(new Location(item));
 		console.log("Pushed new item to locations");
 	});
 
