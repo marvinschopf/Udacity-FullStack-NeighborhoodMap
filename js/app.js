@@ -5,14 +5,11 @@ var map;
 
 
 var Location = function(data) {
-	
+
 	this.title = "";
 	if(typeof data.title !== 'undefined') {
 			self.title = data.title;
 			console.log("Using predefined title: "+self.title);
-	} else {
-			self.title = self.foursquare_response.name;
-			console.log("Using foursquare title: "+self.title);
 	}
 
 	console.log("Location initializes with name "+data.title);
@@ -51,6 +48,10 @@ var Location = function(data) {
 		self.formatted_title = "<b>"+self.foursquare_response.name+" ("+self.main_category+")</b>";
 		self.complete_title = self.foursquare_response.name+" ("+self.main_category+")";
 		self.id = self.foursquare_response.id;
+
+		if(self.title !== "") {
+			self.title = self.foursquare_response.name;
+		}
 
 		$('.listlist').append("<li id='"+self.id+"'>"+self.formatted_title+"</li>");
 	});
