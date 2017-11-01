@@ -22,11 +22,13 @@ var mapLocations = [
 		// Skyline Plaza
 	},
 	{
+		title: "Zoo Frankfurt (Zoo)",
 		lat: 50.115583,
 		long: 8.703139
 		// Zoo Frankfurt
 	},
 	{
+		title: "Goetheturm",
 		lat: 50.089,
 		long: 8.711389
 		// Goetheturm

@@ -7,6 +7,7 @@ var map;
 var Location = function(data) {
 	console.log("Location initializes with name "+data.title);
 	var self = this;
+	this.pre_data = data;
 	this.latitude = data.lat;
 	this.longitude = data.long;
 	this.url = "";
@@ -35,7 +36,11 @@ var Location = function(data) {
 		console.log(resp);
 		self.foursquare_response = resp.response.venues[0];
 		self.address = "<pre>" + self.foursquare_response.location.formattedAddress[0] + "<br>" + self.foursquare_response.location.formattedAddress[1] + "<br>" + self.foursquare_response.location.formattedAddress[2] + "</pre>";
-		self.title = self.foursquare_response.name;
+		if(!self.pre_data.title) {
+			self.title = self.foursquare_response.name;
+		} else {
+			self.title = self.pre_data.title;
+		}
 		self.main_category = self.foursquare_response.categories[0].name;
 		self.formatted_title = "<b>"+self.foursquare_response.name+" ("+self.main_category+")</b>";
 		self.complete_title = self.foursquare_response.name+" ("+self.main_category+")";
