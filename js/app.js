@@ -40,7 +40,7 @@ var Location = function(data) {
 			console.log("Title predefined: "+self.pre_data.title);
 			self.title = self.pre_data.title;
 		} else {
-			console.log("No title predefined, using foursquare data: "self.foursquare_response.name);
+			console.log("No title predefined, using foursquare data: "+self.foursquare_response.name);
 			self.title = self.foursquare_response.name;
 		}
 		self.main_category = self.foursquare_response.categories[0].name;
