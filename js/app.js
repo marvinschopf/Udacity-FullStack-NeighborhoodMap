@@ -39,6 +39,10 @@ var Location = function(data) {
 		self.title = self.foursquare_response.name;
 		if(self.pre_data.title) {
 			self.title = self.pre_data.title;
+			console.log("Using predefined title: "+self.title);
+		} else {
+			self.title = self.foursquare_response.name;
+			console.log("Using foursquare title: "+self.title);
 		}
 		self.main_category = self.foursquare_response.categories[0].name;
 		self.formatted_title = "<b>"+self.foursquare_response.name+" ("+self.main_category+")</b>";
