@@ -50,7 +50,7 @@ var Location = function(data) {
 		self.complete_title = self.foursquare_response.name+" ("+self.main_category+")";
 		self.id = self.foursquare_response.id;
 
-		if(self.title !== "") {
+		if(self.title === "") {
 			self.title = self.foursquare_response.name;
 		}
 
