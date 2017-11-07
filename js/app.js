@@ -81,7 +81,7 @@ var Location = function(data) {
 
 	this.showWindowOnClick = function(place) {
 		google.maps.event.trigger(self.marker, 'click');
-	}
+	};
 
 	this.sm = ko.computed(function() {
 		if(this.visible() === true) {
