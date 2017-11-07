@@ -79,7 +79,7 @@ var Location = function(data) {
 		},2100);
 	});
 
-	function showWindowOnClick(){
+	this.showWindowOnClick(){
 		self.content = '<div class="info-window"><span class="title"><b>'+self.formatted_title+'</b></span>'+self.address+'</div>';
 		self.iw.setContent(self.content);
 		self.iw.open(map,this);
@@ -119,6 +119,23 @@ function AppViewModel() {
 		self.allLocations.push(new Location(item));
 		console.log("Pushed new item to locations");
 	});
+
+	this.filtered = ko.computed(function() {
+		var filt = self.query().toLowerCase();
+		if(!filt) {
+			self.allLocations().forEach(function(loc) {
+				loc.visible(true);
+			});
+			return self.allLocations();
+		} else {
+			return ko.utils.arrayFilter(self.allLocations(), function(loc) {
+				var str = loc.title.toLowerCase();
+				var res = (str.search(filt) >= 0);
+				loc.visible(res);
+				return res;
+			}
+		}
+	}, self);
 
 	console.log("Initialized appviewmodel!");
 
